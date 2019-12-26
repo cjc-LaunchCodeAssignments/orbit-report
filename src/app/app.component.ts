@@ -32,8 +32,12 @@ export class AppComponent {
     let matchingSatellites: Satellite[] = [];
     searchTerm = searchTerm.toLowerCase();
     for(let i=0; i < this.sourceList.length; i++) {
-      let name = this.sourceList[i].name.toLowerCase();
-      if (name.indexOf(searchTerm) >= 0) {
+      let sourceListItem = this.sourceList[i];
+      if (sourceListItem.name.toLowerCase().indexOf(searchTerm) >= 0) {
+          matchingSatellites.push(this.sourceList[i]);
+      } else if(sourceListItem.type.toLowerCase().indexOf(searchTerm)>=0){
+          matchingSatellites.push(this.sourceList[i]);
+      } else if(sourceListItem.orbitType.toLowerCase().indexOf(searchTerm)>=0){
           matchingSatellites.push(this.sourceList[i]);
       }
     }
