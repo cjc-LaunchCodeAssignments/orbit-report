@@ -8,8 +8,9 @@ import { Satellite } from '../satellite';
 })
 export class OrbitListComponent implements OnInit {
   @Input() satellites: Satellite[];
+  lightBlue:string='lightblue';
   constructor() { }
-
+  
   ngOnInit() {
   }
   sort(column: string): void {
@@ -22,5 +23,12 @@ export class OrbitListComponent implements OnInit {
        }
        return 0;
     });
+  }
+  alternatingRowColors(num){
+    if(num%2===0){
+      return true;
+    } else {
+      return false;
+    }
   }
 }
